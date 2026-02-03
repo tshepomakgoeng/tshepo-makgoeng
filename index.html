@@ -99,20 +99,23 @@
 
   <!-- Background music -->
   <audio id="loveSong" loop>
-    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Keys_of_Moon/Emotional_Music/Keys_of_Moon_-_Tenderness.mp3" type="audio/mpeg">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     function showLove() {
+      const surprise = document.getElementById("surprise");
+
+      // Start the music when button is clicked
       document.getElementById("loveSong").play();
 
+      // Create floating hearts
       for (let i = 0; i < 25; i++) {
         createHeart();
       }
 
-      // 2-second delayed secret message with magical flash
+      // 2-second delayed surprise message with pink flash
       setTimeout(() => {
-        const surprise = document.getElementById("surprise");
         surprise.innerHTML = "I choose you, Tshepiso. Today, tomorrow, and always. 💖";
 
         // Flash effect
@@ -120,8 +123,8 @@
         surprise.style.color = "#ffb6c1"; // soft pink flash
         setTimeout(() => {
           surprise.style.color = "white"; // back to white
-        }, 500); // flash duration 0.5s
-      }, 2000); // 2-second delay
+        }, 500);
+      }, 2000);
     }
 
     function createHeart() {
