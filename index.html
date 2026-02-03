@@ -74,24 +74,18 @@
     <p id="surprise"></p>
   </div>
 
-  <!-- Romantic background music -->
-  <audio id="loveSong" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2025/01/05/audio_abcd12345.mp3" type="audio/mpeg">
-  </audio>
-
   <script>
     function showLove() {
-      document.getElementById("loveSong").play();
-
       for (let i = 0; i < 25; i++) {
         createHeart();
       }
 
+      // 2-second delayed surprise message with pink flash
       setTimeout(() => {
         const surprise = document.getElementById("surprise");
         surprise.innerHTML = "I choose you, Tshepiso. Today, tomorrow, and always. 💖";
         surprise.style.transition = "0.3s";
-        surprise.style.color = "#ffb6c1";
+        surprise.style.color = "#ffb6c1"; // soft pink flash
         setTimeout(() => { surprise.style.color = "white"; }, 500);
       }, 2000);
     }
@@ -101,7 +95,7 @@
       heart.className = "heart";
       heart.innerHTML = "❤️";
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (3 + Math.random()*3) + "s";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
       document.body.appendChild(heart);
       setTimeout(() => { heart.remove(); }, 6000);
     }
