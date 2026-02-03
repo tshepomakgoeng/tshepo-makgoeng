@@ -27,21 +27,9 @@
       box-shadow: 0 0 30px rgba(0,0,0,0.2);
     }
 
-    h1 {
-      font-size: 26px;
-    }
-
-    .name {
-      font-size: 22px;
-      font-weight: bold;
-      color: #fff0f3;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 17px;
-      line-height: 1.6;
-    }
+    h1 { font-size: 26px; }
+    .name { font-size: 22px; font-weight: bold; color: #fff0f3; margin-bottom: 10px; }
+    p { font-size: 17px; line-height: 1.6; }
 
     button {
       margin-top: 20px;
@@ -54,10 +42,7 @@
       font-weight: bold;
       cursor: pointer;
     }
-
-    button:hover {
-      background: #ffe3ea;
-    }
+    button:hover { background: #ffe3ea; }
 
     .heart {
       position: absolute;
@@ -65,16 +50,9 @@
       font-size: 20px;
       animation: floatUp 6s linear infinite;
     }
-
     @keyframes floatUp {
-      from {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-110vh);
-        opacity: 0;
-      }
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-110vh); opacity: 0; }
     }
   </style>
 </head>
@@ -93,37 +71,28 @@
     </p>
 
     <button onclick="showLove()">Click for a surprise 💌</button>
-
     <p id="surprise"></p>
   </div>
 
-  <!-- Background music -->
+  <!-- Romantic background music -->
   <audio id="loveSong" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <source src="https://cdn.pixabay.com/download/audio/2025/01/05/audio_abcd12345.mp3" type="audio/mpeg">
   </audio>
 
   <script>
     function showLove() {
-      const surprise = document.getElementById("surprise");
-
-      // Start the music when button is clicked
       document.getElementById("loveSong").play();
 
-      // Create floating hearts
       for (let i = 0; i < 25; i++) {
         createHeart();
       }
 
-      // 2-second delayed surprise message with pink flash
       setTimeout(() => {
+        const surprise = document.getElementById("surprise");
         surprise.innerHTML = "I choose you, Tshepiso. Today, tomorrow, and always. 💖";
-
-        // Flash effect
         surprise.style.transition = "0.3s";
-        surprise.style.color = "#ffb6c1"; // soft pink flash
-        setTimeout(() => {
-          surprise.style.color = "white"; // back to white
-        }, 500);
+        surprise.style.color = "#ffb6c1";
+        setTimeout(() => { surprise.style.color = "white"; }, 500);
       }, 2000);
     }
 
@@ -132,12 +101,9 @@
       heart.className = "heart";
       heart.innerHTML = "❤️";
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      heart.style.animationDuration = (3 + Math.random()*3) + "s";
       document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
+      setTimeout(() => { heart.remove(); }, 6000);
     }
   </script>
 
